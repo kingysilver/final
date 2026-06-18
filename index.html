@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food Portfolio</title>
+<title>Busan Food Portfolio</title>
 
 <style>
 html {
@@ -16,7 +16,39 @@ body {
   background: #eaf7ff;
 }
 
-/* NAV BAR */
+/* HERO (첫 화면) */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #8fd3ff, #eaf7ff);
+  color: white;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-top: 15px;
+  opacity: 0.9;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* NAV */
 nav {
   position: fixed;
   top: 0;
@@ -25,9 +57,8 @@ nav {
   justify-content: center;
   gap: 30px;
   padding: 15px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6);
   backdrop-filter: blur(10px);
-  z-index: 10;
 }
 
 nav a {
@@ -50,21 +81,20 @@ section {
 #video { background: linear-gradient(120deg,#bfe9ff,#eaf7ff); }
 #goods { background: linear-gradient(120deg,#a6ddff,#dff5ff); }
 
-/* 텍스트 */
+/* TEXT */
 .text {
   width: 40%;
 }
 
 .text h1 {
-  font-size: 50px;
-  margin-bottom: 10px;
+  font-size: 48px;
 }
 
 .text p {
   color: #555;
 }
 
-/* 미디어 */
+/* MEDIA */
 .media {
   width: 40%;
 }
@@ -85,23 +115,17 @@ button {
   color: white;
   cursor: pointer;
 }
-
-/* TOP BUTTON */
-.top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #0077cc;
-  color: white;
-  border: none;
-  padding: 12px 15px;
-  border-radius: 50%;
-  cursor: pointer;
-}
 </style>
 </head>
 
 <body>
+
+<!-- HERO INTRO -->
+<div class="hero">
+  <h1>부산 맛집 홍보 기획 포트폴리오</h1>
+  <p>AI 이미지·영상 크리에이션</p>
+  <div class="scroll">↓ Scroll Down</div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -114,10 +138,9 @@ button {
 <section id="poster">
   <div class="text">
     <h1>Poster Design</h1>
-    <p>하늘빛 감성 맛집 포스터</p>
+    <p>부산 맛집을 시각적으로 표현한 포스터</p>
   </div>
   <div class="media">
-    <!-- 🔥 여기만 네 이미지로 교체 -->
     <img src="images/poster.jpg">
   </div>
 </section>
@@ -126,11 +149,10 @@ button {
 <section id="video">
   <div class="text">
     <h1>Promo Video</h1>
-    <p>브랜드 홍보 영상</p>
+    <p>AI 기반 홍보 영상 제작</p>
   </div>
 
   <div class="media">
-    <!-- 🔥 여기 영상 교체 -->
     <video id="vid">
       <source src="video/promo.mp4">
     </video>
@@ -148,9 +170,6 @@ button {
     <img src="images/goods.jpg">
   </div>
 </section>
-
-<!-- TOP -->
-<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
 const video = document.getElementById("vid");
