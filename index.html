@@ -52,23 +52,26 @@ nav a {
   align-items: center;
   text-align: center;
 
-  background: linear-gradient(135deg, var(--main), var(--light), var(--cream)) !important;
+  background: linear-gradient(135deg, var(--main), var(--light), var(--cream));
   color: white;
+  position: relative;
 }
 
 .hero h1 {
-  font-size: 58px;
+  font-size: 56px;
   margin: 0;
 }
 
 .hero p {
   font-size: 18px;
   margin-top: 10px;
+  opacity: 0.95;
 }
 
 .scroll {
   position: absolute;
   bottom: 25px;
+  font-size: 14px;
   opacity: 0.8;
 }
 
@@ -81,17 +84,17 @@ section {
   padding: 80px;
 }
 
-/* BACKGROUNDS (강제 적용) */
+/* BACKGROUNDS */
 #poster {
-  background: linear-gradient(120deg, #FFF3EC, #FFFFFF) !important;
+  background: linear-gradient(120deg, #FFF3EC, #FFFFFF);
 }
 
 #video {
-  background: linear-gradient(120deg, #FFD3B3, #FFF7F2) !important;
+  background: linear-gradient(120deg, #FFD3B3, #FFF7F2);
 }
 
 #goods {
-  background: linear-gradient(120deg, var(--main), var(--cream)) !important;
+  background: linear-gradient(120deg, var(--main), var(--cream));
 }
 
 /* TEXT */
@@ -106,6 +109,7 @@ section {
 
 .text p {
   color: #666;
+  line-height: 1.6;
 }
 
 /* MEDIA */
@@ -113,10 +117,53 @@ section {
   width: 40%;
 }
 
-img, video {
+img {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* VIDEO THUMB */
+.thumb {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.thumb:hover {
+  transform: scale(1.02);
+}
+
+.thumb img {
+  width: 100%;
+  display: block;
+}
+
+/* PLAY BUTTON */
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(252,138,54,0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.thumb:hover .play {
+  background: var(--deep);
 }
 
 /* BUTTON */
@@ -133,11 +180,6 @@ button {
 button:hover {
   background: var(--deep);
 }
-
-/* FIX: 캐시 대응용 강제 렌더 */
-.hero, #poster, #video, #goods {
-  will-change: transform;
-}
 </style>
 </head>
 
@@ -146,7 +188,7 @@ button:hover {
 <!-- HERO -->
 <div class="hero">
   <h1>부산 맛집 홍보 기획 포트폴리오</h1>
-  <p>AI 이미지·영상 크리에이션</p>
+  <p>AI 이미지 · 영상 크리에이션</p>
   <div class="scroll">↓ Scroll Down</div>
 </div>
 
@@ -161,25 +203,28 @@ button:hover {
 <section id="poster">
   <div class="text">
     <h1>Poster Design</h1>
-    <p>부산 감성을 담은 맛집 포스터</p>
+    <p>부산 감성을 담아 제작한 맛집 포스터</p>
   </div>
+
   <div class="media">
     <img src="images/poster.jpg">
   </div>
 </section>
 
-<!-- VIDEO -->
+<!-- VIDEO (유튜브 썸네일 링크) -->
 <section id="video">
   <div class="text">
     <h1>Promo Video</h1>
-    <p>AI 기반 홍보 영상</p>
+    <p>AI 기반 홍보 영상 제작</p>
   </div>
 
   <div class="media">
-    <video id="vid">
-      <source src="video/promo.mp4">
-    </video>
-    <button onclick="toggleVideo()">▶ Play / Pause</button>
+    <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank">
+      <div class="thumb">
+        <img src="images/video_thumbnail.jpg">
+        <div class="play">▶</div>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -187,24 +232,13 @@ button:hover {
 <section id="goods">
   <div class="text">
     <h1>Goods Design</h1>
-    <p>브랜드 굿즈 디자인</p>
+    <p>브랜드 아이덴티티를 담은 굿즈 디자인</p>
   </div>
+
   <div class="media">
     <img src="images/goods.jpg">
   </div>
 </section>
-
-<script>
-const video = document.getElementById("vid");
-
-function toggleVideo(){
-  if(video.paused){
-    video.play();
-  } else {
-    video.pause();
-  }
-}
-</script>
 
 </body>
 </html>
