@@ -56,13 +56,15 @@ nav a {
 .hero h1 { font-size: 56px; margin: 0; }
 .hero p { font-size: 18px; margin-top: 10px; }
 
-/* SECTION */
+/* SECTION (🔥 핵심 수정) */
 section {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 80px;
+  padding: 120px 80px;
+  box-sizing: border-box;
 }
 
 /* BACKGROUNDS */
@@ -114,8 +116,9 @@ img {
 .goods-wrap {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   width: 40%;
+  padding-bottom: 80px;
 }
 
 .goods-card {
@@ -126,8 +129,11 @@ img {
   text-align: center;
 }
 
+/* 이미지 안정화 */
 .goods-card img {
   width: 100%;
+  max-height: 220px;
+  object-fit: cover;
   border-radius: 15px;
 }
 
@@ -139,6 +145,8 @@ img {
 .img-row img {
   width: 50%;
   border-radius: 12px;
+  max-height: 200px;
+  object-fit: cover;
 }
 
 .goods-card h2 {
@@ -149,6 +157,23 @@ img {
 .price {
   color: #666;
   font-weight: bold;
+}
+
+/* 📱 모바일 대응 (안 깨지게 안전장치) */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  .text, .media {
+    width: 100%;
+  }
+
+  .goods-wrap {
+    width: 100%;
+  }
 }
 </style>
 </head>
@@ -205,7 +230,6 @@ img {
 
   <div class="media goods-wrap">
 
-    <!-- 1번 (2개) -->
     <div class="goods-card">
       <div class="img-row">
         <img src="image/Firefly_Gemini Flash_A high-end product photography shot of a single keycap keychain shaped like a crispy  36104.png">
@@ -215,14 +239,12 @@ img {
       <p class="price">15,000원</p>
     </div>
 
-    <!-- 2번 -->
     <div class="goods-card">
       <img src="image/Soy Sauce Keychain.png">
       <h2>돈카츠 소스 미니 키링</h2>
       <p class="price">10,000원</p>
     </div>
 
-    <!-- 3번 -->
     <div class="goods-card">
       <img src="image/Firefly_Gemini Flash_A high-end lifestyle product photography shot showing a person’s hands squeezing and  36104.png">
       <h2>돈카츠 스퀴시</h2>
